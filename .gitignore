@@ -1,0 +1,7 @@
+/Win32/
+Debug/
+Release/
+GeneratedFiles/
+/ipch/
+*.sdf
+*.suo

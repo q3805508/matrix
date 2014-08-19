@@ -1,0 +1,37 @@
+
+//初版  遗弃
+<Effect>
+	<CustomParameters>//可选 子节点个数0~n
+		<CustomParameter name="custumParamA" type="float4" defValue="1.0f,1.0f,1.0f,1.0f"/>
+		// type属性可选值:float\float2\float3\float4 defValue各个值用逗号隔开，最多四个值
+	</CustomParameters>
+
+	<GenerateFlags>//可选 子节点个数0~n
+		<GenerateFlag name="normalMapEnable" shaderDef="NORMAL_MAP_ENABLE"/>
+	</GenerateFlags>
+
+	<Shader file="xxxxxxx.sdr"/>//只有一个
+</Effect>
+
+
+<Effect>
+	<GenFlag name = :Name desc = :Desc Mask =:Mask />
+	<CParam name = :Name type =:Type shader =:ShaderType [default =:DefaultValue] [flag =:Flag]/>//若干
+	<Texture name =:Name type =:TextureType [flag =:Flag]/>
+	<Shader name = :Name type =:Type>
+		<Input name = :name type =:Type [flag =:Flag]/>
+		<Output name = :name type =:Type [flag =:Flag]/>
+		<Code> <![CDATA ..code here.. ]]> </Code>
+	</Shader>
+	<Technique :Name>// 若干Technique
+		<Pass :Name>//若干pass
+			<RenderState type = :RenderStateType value = :RenderStateValue/>//若干State
+			<VertexShader name = :ShaderName/>
+			<PixelShader name = :ShaderName/>
+		</Pass>
+	</Technique>
+</Effect>
+
+<ShaderFlags>
+	<Flag nane = :Name mask =:Mask desc =:Desc/>
+</ShaderFlags>

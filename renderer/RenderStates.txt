@@ -1,0 +1,88 @@
+全局State
+
+FillMode 枚举
+D3DRS_SLOPESCALEDEPTHBIAS 
+
+
+
+
+EffectState
+zwriteEnable 布尔
+alphamode enum opacity blend test
+alpharef 浮点 从材质数据获取
+cullMode enum
+zfunc enum
+
+
+
+
+其它,程序控制
+SRCBLEND
+DESTBLEND
+alphafunc
+ditherenable
+stencilenable
+stencilfail
+stencialzfail
+stencilpass
+stencilfunc
+stencilref
+stencilmask
+stencilwritemask
+clipplaneenable
+pointsize
+pointsize min
+pointscaleenable
+pointspriteenable
+pointscalea
+pointscaleb
+pointscalec
+pointsize max
+D3DRS_COLORWRITEENABLE 
+D3DRS_BLENDOP 
+D3DRS_SCISSORTESTENABLE 
+D3DRS_ANTIALIASEDLINEENABLE 
+D3DRS_CCW_STENCILFAIL 
+D3DRS_CCW_STENCILZFAIL 
+D3DRS_CCW_STENCILPASS 
+D3DRS_CCW_STENCILFUNC 
+D3DRS_COLORWRITEENABLE1
+D3DRS_COLORWRITEENABLE2 
+D3DRS_COLORWRITEENABLE3
+D3DRS_BLENDFACTOR 
+D3DRS_SRGBWRITEENABLE 
+D3DRS_DEPTHBIAS 
+D3DRS_SRCBLENDALPHA 
+D3DRS_DESTBLENDALPHA 
+D3DRS_BLENDOPALPHA 
+
+
+无用
+focenable
+specularenable
+fogcolor
+fogtablemode
+fogstart
+fogend
+fogdensity
+rangefogenable
+texturefactor
+warp0
+warp1
+warp2
+warp3
+....
+warp7
+clipping
+lighting
+ambient
+fogvertexmode
+colorvertex
+localviewer
+normalizenormals
+diffusematerialsource
+specualrmaterialsource
+ambientmaterialsource
+vertexblend
+D3DRS_TWOSIDEDSTENCILMODE 
+
