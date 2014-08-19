@@ -1,4 +1,4 @@
 matrix
 ======
 
-a game engine for learing
+a home made game engine
