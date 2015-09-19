@@ -6,6 +6,10 @@
 
 #include "..\common\futrure.h"
 
+namespace renderer {
+	class IRenderer;
+}
+
 class matrixEditor : public QMainWindow
 {
 	Q_OBJECT
@@ -17,17 +21,22 @@ public:
 	void init();
 	void release();
 
-	void testResMgr();
+	//void testResMgr();
 
 public slots:
-	void onResourceDone();
+	//void onResourceDone();
+
+protected:
+	virtual void timerEvent( QTimerEvent * event);
 
 private:
 	Ui::matrixEditorClass ui;
 
+	renderer::IRenderer* pRenderer;
+	int frameTimer;
 
 	//for test purpose
-	QSharedPointer<cn::Futrure<QByteArray>> testFuture;
+	//QSharedPointer<cn::Futrure<QByteArray>> testFuture;
 };
 
 #endif // MATRIXEDITOR_H

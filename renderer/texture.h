@@ -1,16 +1,18 @@
 #pragma once
 #include "renderer_global.h"
 #include "rendererdef.h"
-#include <qexpecitlyshareddatapointer.h>
+#include <QString>
+#include <QExplicitlySharedDataPointer>
 
 namespace renderer {
-	class IHWTexture;
+	class HWTexture;
 	class TextureData;
 	enum TextureFlag {TFLAG_RENDERTARGET,TFLAG_SRGB};
 	class RENDERER_EXPORT Texture {
 	public:
 		Texture();
 		~Texture();
+
 
 		void loadTexture(QString textureID);
 		bool createTexture(int width,int height,TextureType type,
@@ -26,12 +28,12 @@ namespace renderer {
 		TextureType getTextureType();
 		TextureFormat getTextureFormat();
 
-		IHWTexture* getHardWareTexture();
+		HWTexture* getHardWareTexture();
 
 		void* lock(int face,int lod);
 		void unlock();
 
 	private:
-		QExplicitlySharedDataPointer<TextureData> d; 
+		//QExplicitlySharedDataPointer<TextureData> d; 
 	};
 }

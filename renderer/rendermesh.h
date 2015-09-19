@@ -44,7 +44,8 @@ namespace renderer {
 		void setMaterial(const Material& material);
 		const Material& getMaterial();
 
-		const QVector<SubRenderMesh>& getSubMesh();
+		SubRenderMesh& getSubMesh(int i);
+		int getNumSubMesh();
 
 
 	private:

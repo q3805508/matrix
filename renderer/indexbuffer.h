@@ -1,6 +1,6 @@
 #pragma once
 #include "renderer_global.h"
-#include <qexpecitlyshareddatapointer.h>
+#include <QExplicitlySharedDataPointer>
 
 namespace renderer {
 	class IHWIndexBuffer;
@@ -18,5 +18,17 @@ namespace renderer {
 
 	private:
 		QExplicitlySharedDataPointer<IndexBufferData> d;
+	};
+
+	class IndexBufferData: public QSharedData {
+		IndexBufferData()
+		{
+
+		}
+
+		IndexBufferData(const IndexBufferData& src)
+		{
+
+		}
 	};
 }

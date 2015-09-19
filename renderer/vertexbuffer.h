@@ -4,7 +4,7 @@
 #include <QExplicitlySharedDataPointer>
 
 namespace renderer {
-	class IHWVertexBuffer;
+	class HWVertexBuffer;
 	class VertexBufferData;
 	class RENDERER_EXPORT VertexBuffer {
 	public:
@@ -13,7 +13,7 @@ namespace renderer {
 
 		void createVertexBuffer(VertexFormat format,int count,bool dynamic);
 
-		IHWVertexBuffer* getHardWaterVertexBuffer();
+		HWVertexBuffer* getHardWaterVertexBuffer();
 
 		VertexFormat getVertexFormat();
 		int getCount();
@@ -23,5 +23,16 @@ namespace renderer {
 
 	private:
 		QExplicitlySharedDataPointer<VertexBufferData> d;
+	};
+	class VertexBufferData : public QSharedData {
+	public:
+		VertexBufferData()
+		{
+
+		}
+		VertexBufferData(const VertexBufferData& src)
+		{
+
+		}
 	};
 }

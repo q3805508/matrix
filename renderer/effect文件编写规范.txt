@@ -15,10 +15,20 @@
 
 
 <Effect>
-	<GenFlag name = :Name desc = :Desc Mask =:Mask />
-	<CParam name = :Name type =:Type shader =:ShaderType [default =:DefaultValue] [flag =:Flag]/>//若干
-	<Texture name =:Name type =:TextureType [flag =:Flag]/>
+	//<GenFlag name = :Name desc = :Desc Mask =:Mask />
+	
+	
 	<Shader name = :Name type =:Type>
+		<ShaderFlags>
+			<Flag nane = :Name mask =:Mask desc =:Desc/>
+		</ShaderFlags>
+		<CParams>
+			<CParam name = :Name type =:Type shader =:ShaderType [default =:DefaultValue] [flag =:Flag]/>//若干
+		</CParams>
+		<Textures>
+			<Texture name =:Name type =:TextureType [flag =:Flag]/>
+		</Textures>
+
 		<Input name = :name type =:Type [flag =:Flag]/>
 		<Output name = :name type =:Type [flag =:Flag]/>
 		<Code> <![CDATA ..code here.. ]]> </Code>
@@ -32,6 +42,35 @@
 	</Technique>
 </Effect>
 
-<ShaderFlags>
-	<Flag nane = :Name mask =:Mask desc =:Desc/>
-</ShaderFlags>
+//第三版 shader独立放在自己的文件中
+<Effect>
+	//<GenFlag name = :Name desc = :Desc Mask =:Mask />
+	
+
+	<Technique :Name>// 若干Technique
+		<Pass :Name>//若干pass
+			<RenderState type = :RenderStateType value = :RenderStateValue/>//若干State
+			<VertexShader name = :ShaderName/>
+			<PixelShader name = :ShaderName/>
+		</Pass>
+	</Technique>
+</Effect>
+
+	
+	<Shader name = :Name type =:Type>
+		<ShaderFlags>
+			<Flag nane = :Name mask =:Mask desc =:Desc/>
+		</ShaderFlags>
+		<CParams>
+			<CParam name = :Name type =:Type shader =:ShaderType [default =:DefaultValue] [flag =:Flag]/>//若干
+		</CParams>
+		<CTextures>//暂时用不上
+			<CTexture name =:Name type =:TextureType [flag =:Flag]/>
+		</CTextures>
+
+		<Input name = :name type =:Type slot =: Slot [flag =:Flag]/>//抛弃了
+		<Output name = :name type =:Type slot =: Slot [flag =:Flag]/>//抛弃了
+		<VSCode> <![CDATA ..code here.. ]]> </VSCode>
+		<PSCode> <![CDATA ..code here.. ]]> </PSCode>
+	</Shader>
+

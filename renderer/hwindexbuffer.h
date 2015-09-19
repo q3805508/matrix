@@ -1,15 +1,14 @@
 #pragma once
+#include "hwresource.h"
 
 namespace renderer {
-	class IHWIndexBuffer {
+	class HWIndexBuffer : public HWResource{
 	public:
-		virtual ~IHWIndexBuffer();
+		virtual ~HWIndexBuffer(){}
 
-		virtual bool createIndexBuffer(int count,bool dynamic);
+		virtual int getCount() = 0;
 
-		virtual int getCount();
-
-		virtual unsigned short* lock();
-		virtual void unlock();
+		virtual unsigned short* lock() = 0;
+		virtual void unlock() = 0;
 	};
 }

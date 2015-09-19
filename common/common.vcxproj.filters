@@ -55,6 +55,12 @@
     <ClInclude Include="common_global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="strutility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="futrure.h">

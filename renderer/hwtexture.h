@@ -1,12 +1,12 @@
 #pragma once
 #include "rendererdef.h"
-
+#include "hwresource.h"
 
 namespace renderer {
 
-	class IHWTexture {
+	class HWTexture : public HWResource {
 	public:
-		virtual ~IHWTexture();
+		virtual ~HWTexture();
 
 		virtual int getWidth() = 0;
 		virtual int getHeight() = 0;

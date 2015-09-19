@@ -1,75 +1,88 @@
 #pragma once
+#include "renderer_global.h"
 #include <qobject.h>
 #include <qstringlist.h>
-#include "rendererdef.h"
 #include <qvector.h>
+#include <qmap.h>
+#include <QtXml/qdom.h>
+#include <QExplicitlySharedDataPointer>
+#include "rendererdef.h"
 #include "..\math\vector.h"
+//#include "shader.h"
 
 namespace renderer {
-	class IHWShader;
+	class HWShader;
+	class EffectData;
 
-	struct GenFlag {
-		QString name;
-		QString desc;
-		int mask;
-	};
 
-	class Pass {//: public QObject {
+	class RENDERER_EXPORT Pass
+	{//: public QObject {
 		//Q_OBJECT
 	public:
 		Pass();
 		~Pass();
 
-		QString name();
+		QString getPassName();
 
 		int getStateMask();
 		int getStateFlag();
 
 
-		IHWShader* getVSShader(int flags);
-		IHWShader* getPSShader(int flags);
+		//Shader getShader();
+
+		bool loadPassFromXML(QDomElement* node);
+
+	private:
+		//Shader shader;
+		int stateMask;
+		int stateFlag;
+		QString name;
 	};
 
-	class Technique {//: public QObject {
+	class RENDERER_EXPORT Technique {//: public QObject {
 		//Q_OBJECT
 	public:
 		Technique();
 		~Technique();
 
-		QString name();
-
+		QString getTechName();
 
 		int getPassCount();
 		Pass* getPass(QString name);
 		Pass* getPass(int index);
 
+		bool loadTechniqueFromXML(QDomElement* node);
+	private:
+		QString name;
+		//QVector<Pass> pass;
 	};
 
-	class Effect {//: public QObject {
+
+
+	class RENDERER_EXPORT Effect {//: public QObject {
 		//Q_OBJECT
 
 	public:
-		Effect();
+		Effect(QString name);
 		~Effect();
-
-		struct CustomParameter {
-			QString name;
-			ShaderType type;
-			math::vector4 default;
-		};
 
 		int getTechniqueCount();
 		Technique* getTechnique(QString name);
 		Technique* getTechnique(int index);
 
-		QString name();
+		QString getEffectName();
 
-		const QVector<CustomParameter>& getCustomParameters() const;
-		math::vector4 getCustomParameterValue(QString name) const;
-		ShaderType getCustomParameterType(QString name) const;
-		void setCustomParameterValue(math::vector4 data);
+		//const QVector<CustomEffectParam>& getCustomParameters() const;
+		//math::vector4 getCustomParameterValue(QString name) const;
+		//ShaderParamType getCustomParameterType(QString name) const;
+		//void setCustomParameterValue(math::vector4 data);
 
-		const QVector<GenFlag>& getGenerageFlags() const;
+		//const QVector<GenFlag>& getGenerageFlags() const;
 
+	public://
+		bool loadEffectFromXML(QDomElement* node);
+
+	private:
+		//QExplicitlySharedDataPointer<EffectData> d;
 	};
 }
